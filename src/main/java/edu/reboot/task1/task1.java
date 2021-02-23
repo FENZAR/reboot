@@ -3,7 +3,7 @@ package edu.reboot.task1;
 import java.util.*;
 import static java.lang.System.out;
 
-public class task1_m {
+public class task1 {
 
     private static final double C100_FUEL_CONSUMPTION = 12.5;
     private static final double C200_FUEL_CONSUMPTION = 12.0;
