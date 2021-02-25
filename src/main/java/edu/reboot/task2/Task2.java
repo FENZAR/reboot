@@ -52,7 +52,7 @@ public class Task2 {
     private static void infoByType(String type) {
         TreeMap<String, Vehicle> sorted = new TreeMap<>(vehiclesInfoMap);
 
-        Iterator it = vehiclesInfoMap.entrySet().iterator();
+        Iterator it = sorted.entrySet().iterator();
         while (it.hasNext()) {
             Map.Entry pair = (Map.Entry)it.next();
             if(pair.getKey().toString().substring(0, 4).equals(type)) {
