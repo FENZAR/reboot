@@ -20,12 +20,10 @@ public class SubTask_2 {
 
             // Читаем символ, берем текущее значение и перезаписываем с увеличением
             while (inputStream.available() > 0) {
-                int ch = inputStream.read();
-                int value = map.get((char) ch);
-
-                map.put((char) ch, ++value);
+                char ch = (char)inputStream.read();
+                int value = map.get(ch);
+                map.put(ch, ++value);
             }
-
             System.out.println(map);
 
         }catch (IOException e) {
