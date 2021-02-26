@@ -5,19 +5,12 @@ import java.io.IOException;
 import java.util.HashMap;
 
 public class SubTask_2 {
-    private static HashMap<Character, Integer> map = new HashMap<>();
-
-//    private static void initDictionary(char[] dict) {
-//        for(char c : dict)
-//            map.put(c, 0);
-//    }
-
-    public static void calculateChars() {
-
-    }
 
     public static void main (String[] args) {
 
+        HashMap<Character, Integer> map = new HashMap<>();
+
+        // Инициализация словаря
         String dict = "abcdefghijklnmopqrstuvwxyz";
         for(char c : dict.toCharArray())
             map.put(c, 0);
@@ -25,13 +18,15 @@ public class SubTask_2 {
         try {
             FileInputStream inputStream = new FileInputStream("./src/main/resources/input.txt");
 
+            // Читаем символ, берем текущее значение и перезаписываем с увеличением
             while (inputStream.available() > 0) {
                 int ch = inputStream.read();
+                int value = map.get((char) ch);
 
-                //map.
-
-                System.out.println((char) ch);
+                map.put((char) ch, ++value);
             }
+
+            System.out.println(map);
 
         }catch (IOException e) {
             System.out.println(e.getMessage());
