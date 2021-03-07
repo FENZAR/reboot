@@ -50,17 +50,19 @@ public class Task2 {
     }
 
     private static void infoByType(String type) {
-        TreeMap<String, Vehicle> sorted = new TreeMap<>(vehiclesInfoMap);
 
-        Iterator it = sorted.entrySet().iterator();
+        List<Vehicle> vehsList = new ArrayList<>();
+
+        Iterator it = vehiclesInfoMap.entrySet().iterator();
         while (it.hasNext()) {
             Map.Entry pair = (Map.Entry)it.next();
             if(pair.getKey().toString().substring(0, 4).equals(type)) {
-                out.println(pair.getValue().toString());
+                vehsList.add((Vehicle) pair.getValue());
             }
-
         }
 
+        Collections.sort(vehsList);
+        out.println(vehsList);
     }
 
     private static void parseInputString(String input) {
