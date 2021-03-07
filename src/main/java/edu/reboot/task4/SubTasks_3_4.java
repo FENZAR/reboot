@@ -12,11 +12,15 @@ public class SubTasks_3_4 {
         return someCollection;
     }
 
-
-    private static <K, V> HashMap<V, K> reverse(Map<K, V> map) {
-        HashMap<V, K> rev = new HashMap<V, K>();
+    private static <K, V> HashMap<V, Collection<K>> reverse(Map<K, V> map) {
+        HashMap<V, Collection<K>> rev = new HashMap<V, Collection<K>>();
         for(Map.Entry<K, V> entry : map.entrySet()) {
-            rev.put(entry.getValue(), entry.getKey());
+            if(rev.containsKey(entry.getValue())) {
+                rev.get(entry.getValue()).add(entry.getKey());
+            } else {
+                rev.put(entry.getValue(), new LinkedList<>());
+                rev.get(entry.getValue()).add(entry.getKey());
+            }
         }
         return rev;
     }
