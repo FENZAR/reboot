@@ -35,6 +35,7 @@ public class SubTask_5 {
             }
 
             System.out.println("Winner " + winnerName + " with scores " + maxScores);
+            System.out.println(scoresMap);
 
         }catch (IOException e) {
             System.out.println(e.getMessage());
