@@ -21,8 +21,7 @@ public class SubTask_2 {
             // Читаем символ, берем текущее значение и перезаписываем с увеличением
             while (inputStream.available() > 0) {
                 char ch = (char)inputStream.read();
-                int value = map.get(ch);
-                map.put(ch, ++value);
+                map.computeIfPresent(ch, (key, value) -> ++value);
             }
             System.out.println(map);
 
