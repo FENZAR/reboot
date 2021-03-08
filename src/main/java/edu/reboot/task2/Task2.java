@@ -29,7 +29,7 @@ public class Task2 {
             "C100_2-50",
             "C200_2-40-1000",
             "C300_2-200-45",
-            "C400_2-10-20",
+            "C400_2-80-19",
             "C100_3-10",
             "C200_3-170-1100",
             "C300_3-150-29",
@@ -51,18 +51,17 @@ public class Task2 {
 
     private static void infoByType(String type) {
 
-        List<Vehicle> vehsList = new ArrayList<>();
+        Comparator<Vehicle> vcomp = new VehicleMileageComparator().thenComparing(new VehicleExtraComparator());
+        TreeSet<Vehicle> vehicles = new TreeSet<>(vcomp);
 
         Iterator it = vehiclesInfoMap.entrySet().iterator();
         while (it.hasNext()) {
             Map.Entry pair = (Map.Entry)it.next();
             if(pair.getKey().toString().substring(0, 4).equals(type)) {
-                vehsList.add((Vehicle) pair.getValue());
+                vehicles.add((Vehicle) pair.getValue());
             }
         }
-
-        Collections.sort(vehsList);
-        out.println(vehsList);
+        out.println(vehicles);
     }
 
     private static void parseInputString(String input) {
@@ -106,18 +105,7 @@ public class Task2 {
             }
         } else {
             temp.setMileage(temp.getMileage() + mileage);
-
-            switch (type) {
-                case ("C200") -> {
-                    ((Truck)temp).setCargoVolume(((Truck) temp).getCargoVolume() + extra);
-                }
-                case ("C300") -> {
-                    ((PassengerTransport)temp).setPassangerCount(((PassengerTransport) temp).getPassangerCount() + extra);
-                }
-                case ("C400") -> {
-                    ((HeavyMachinery)temp).setLiftedWeight(((HeavyMachinery) temp).getLiftedWeight() + extra);
-                }
-            }
+            temp.setExtra(temp.getExtra() + extra);
         }
 
     }
