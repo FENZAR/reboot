@@ -65,7 +65,7 @@ public class Task2 {
     }
 
     private static void parseInputString(String input) {
-        // Строку формата "C200_1-100-750" забиваем на 2 части по разделителю "_"
+        // Строку формата "C200_1-100-750" разбиваем на 2 части по разделителю "_"
         String[] splitStr = input.split("_");
         // Разбиваем вторую часть по разделителю "-"
         String[] tail = (splitStr[1]).split("-");
@@ -150,7 +150,7 @@ public class Task2 {
         out.println("Тип авто имеющий наибольшую стоимость расходов: " + lastEntry);
         out.println();
 
-        out.println("Информация о каждом авто по типам с сортировкой по пробегу: ");
+        out.println("Информация о каждом авто по типам с сортировкой по пробегу и доп. параметру: ");
         infoByType("C100");
         infoByType("C200");
         infoByType("C300");
